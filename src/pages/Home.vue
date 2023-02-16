@@ -10,8 +10,8 @@
 </script>
 
 <template>
-    <h1>Home Page</h1>
     <div class="container">
+        <h1 class="text-center py-5">Home Page</h1>
         <p>content goes here</p>
     </div>
 </template>
