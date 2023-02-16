@@ -1,5 +1,6 @@
 <script>
     export default{
+        name: 'TheHeader',
         data(){
             return{
                 nav_links: [
@@ -41,10 +42,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item" v-for="(item, index) in nav_links" :key="index">
-                            <a :href="item.route" class="nav-link">{{ item.label }}</a>
-                            <!-- <router-link :to="{ name: item.routeName }" class="nav-link">
-                            {{ item.label }}
-                            </router-link> -->
+                            <router-link :to="{ name: item.route }" class="nav-link">{{ item.label }}</router-link>
                         </li>
                     </ul>
                 </div>
