@@ -26,7 +26,7 @@
             <h5 class="card-title">{{project.name}}</h5>
             <p class="card-text">{{project.description.slice(0, 20)}}...</p>
             <div class="buttons d-flex justify-content-between">
-                <a href="#" class="btn btn-info"><i class="fa-solid fa-eye"></i></a>
+                <router-link :to="{ name: 'projects.show', params: {id: project.id} }" class="btn btn-info"><i class="fa-solid fa-eye"></i></router-link>
                 <a :href="project.github_link" class="btn btn-success"><i class="fa-brands fa-github"></i></a>
             </div>
         </div>
