@@ -1,17 +1,15 @@
 <script>
+    import { store } from '../store';
     export default{
         name: 'ProjectCard',
         props: {
             project: {
                 type: Object
-            },
-            url: {
-                type: String
             }
         },
         data(){
             return{
-
+                url: store.backendUrl,
             }
         }
     }
