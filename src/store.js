@@ -5,20 +5,27 @@ export const store = reactive({
     backendUrl: 'http://localhost:8000',
     api: '/api/projects/',
     projects: [],
+    currentPage: 1,
+    lastPage: 1,
     singleProject: {},
 });
 
-export function fetchProjects() {
-    axios.get(store.backendUrl + store.api)
+export function fetchProjects(query) {
+    axios.get(store.backendUrl + store.api, {
+        params: {
+            ...query,
+        }
+    })
         .then((resp) => {
-            store.projects = resp.data;
+            store.projects = resp.data.data;
+            store.currentPage = resp.data.current_page;
+            store.lastPage = resp.data.last_page;
         })
 }
 
-export function fetchSingleProject() {
-    axios.get(store.backendUrl + store.api + this.$route.params.id)
+export function fetchSingleProject(id) {
+    axios.get(store.backendUrl + store.api + id)
         .then((resp) => {
-            // console.log(this.$route.params.id);
             store.singleProject = resp.data;
         })
 }

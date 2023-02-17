@@ -4,11 +4,14 @@
         name: 'ProjectCard',
         props: {
             project: {
-                type: Object
+                type: Object,
+                required: true,
+                default: ()=> ({}),
             }
         },
         data(){
             return{
+                store,
                 url: store.backendUrl,
             }
         }
