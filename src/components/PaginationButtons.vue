@@ -27,6 +27,12 @@
                         fetchProjects(this.$route.query);
                     }, 500);
                 }
+            },
+
+            numberedPage(){
+                setTimeout(()=>{
+                    fetchProjects(this.$route.query);
+                }, 500);
             }
         }
     }
@@ -42,7 +48,14 @@
                 @click="prevPage"
                 >Prev</router-link>
             </li>
-            <!-- page buttons - v-for page, i su lastPage - :to page: i -->
+            <li v-for="i in store.lastPage">
+                <router-link
+                class="page-link"
+                :to="{ name: 'projects.index', query: { page: i } }"
+                @click="numberedPage"
+                >{{ i }}
+                </router-link>
+            </li>
             <li class="page-item">
                 <router-link
                 class="page-link"

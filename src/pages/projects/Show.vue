@@ -19,7 +19,7 @@
     <div class="container py-5">
         <div class="mb-3 d-flex justify-content-between align-items-center">
             <h2 class="mb-3">{{ store.singleProject.name }}</h2>
-            <h3><span class="badge text-bg-success">{{ store.singleProject?.type.name }}</span></h3>
+            <h3><span class="badge text-bg-success">{{ store.singleProject?.type['name'] }}</span></h3>
         </div>
         <div class="row">
             <div class="col-md-8">
