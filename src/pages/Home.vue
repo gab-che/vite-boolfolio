@@ -1,6 +1,8 @@
 <script>
+    import TheJumbotron from '../components/TheJumbotron.vue';
     export default{
         name: 'Home',
+        components: { TheJumbotron },
         data(){
             return{
 
@@ -10,9 +12,14 @@
 </script>
 
 <template>
-    <div class="container">
-        <h1 class="text-center py-5">Home Page</h1>
-        <p>content goes here</p>
+    <TheJumbotron />
+    <div class="container py-5">
+        <h2>Ultimi progetti inseriti</h2>
+        <div class="row py-3">
+            <div class="col-md-10 col-lg-8 m-auto">
+                sdjfosijfoisjf
+            </div>
+        </div>
     </div>
 </template>
 

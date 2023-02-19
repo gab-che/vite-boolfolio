@@ -52,5 +52,13 @@
 </template>
 
 <style scoped lang="scss">
-
+    @use '../style/main.scss';
+    
+    header{
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 111;
+    }
 </style>

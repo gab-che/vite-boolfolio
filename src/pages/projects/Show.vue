@@ -19,9 +19,9 @@
     <div class="container py-5">
         <div class="mb-3 d-flex justify-content-between align-items-center">
             <h2 class="mb-3">{{ store.singleProject.name }}</h2>
-            <h3><span class="badge text-bg-success">{{ store.singleProject?.type['name'] }}</span></h3>
+            <h3><span class="badge text-bg-success">{{ store.singleProject.type?.name }}</span></h3>
         </div>
-        <div class="row">
+        <div class="row mb-3">
             <div class="col-md-8">
                 <p class="lead">{{ store.singleProject.description }}</p>
             </div>
@@ -31,12 +31,14 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3 d-flex gap-2">
-                <h6 v-for="tag in store.singleProject?.technologies">
+        <div class="d-flex align-items-center gap-3">
+            <div class="d-flex flex-grow-1 gap-2 justify-content-end">
+                <h6 class="mb-0"
+                    v-for="tag in store.singleProject?.technologies">
                     <span class="badge text-bg-light">#{{ tag.name }}</span>
                 </h6>
             </div>
+            <a :href="store.singleProject.github_link" class="btn btn-success"><i class="fa-brands fa-github"></i></a>
         </div>
     </div>
 </template>
