@@ -9,6 +9,7 @@ export const store = reactive({
     lastPage: 1,
     singleProject: {},
     latestProjects: [],
+    submitResponse: '',
 });
 
 export function fetchProjects(query) {
@@ -39,5 +40,21 @@ export function fetchLatestProjects() {
     })
         .then((resp) => {
             store.latestProjects = resp.data;
+        })
+}
+
+export function sendFormData(data) {
+    axios
+        .post(store.backendUrl + '/api/contacts/', data)
+        .then((resp) => {
+            store.submitResponse = 'yay';
+            console.log(resp);
+        })
+        .catch((e) => {
+            if (e.response && e.response.data) {
+                store.submitResponse = e.response.data.message;
+            } else {
+                store.submitResponse = e.message;
+            }
         })
 }
