@@ -8,6 +8,7 @@ export const store = reactive({
     currentPage: 1,
     lastPage: 1,
     singleProject: {},
+    latestProjects: [],
 });
 
 export function fetchProjects(query) {
@@ -27,5 +28,16 @@ export function fetchSingleProject(id) {
     axios.get(store.backendUrl + store.api + id)
         .then((resp) => {
             store.singleProject = resp.data;
+        })
+}
+
+export function fetchLatestProjects() {
+    axios.get(store.backendUrl + store.api, {
+        params: {
+            last5: true,
+        }
+    })
+        .then((resp) => {
+            store.latestProjects = resp.data;
         })
 }

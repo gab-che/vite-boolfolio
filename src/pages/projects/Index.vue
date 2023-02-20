@@ -25,8 +25,8 @@
         <h1 class="text-center py-5">Vite Portfolio</h1>
         <PaginationButtons />
         <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 mb-5">
-            <div class="col mb-3" v-for="(project, i) in store.projects">
-                <ProjectCard :project="project" :key="i" />
+            <div class="col mb-3" v-for="(project, i) in store.projects" :key="i">
+                <ProjectCard :project="project" />
             </div>
         </div>
     </div>
